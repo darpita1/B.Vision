@@ -10,10 +10,10 @@ export default function homePage() {
     // </div>
     <div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"/>
-        <section class="hero is-warning is-bold">
-            <div class="hero-body">
-              <div class="container">
-                <h1 class="title has-text-centered is-size-1 is-family-monospace">
+        <section className="hero is-warning is-bold">
+            <div className="hero-body">
+              <div className="container">
+                <h1 className="title has-text-centered is-size-1 is-family-monospace">
                   B.VISION
                 </h1>
               </div>
@@ -21,26 +21,26 @@ export default function homePage() {
           </section>
 
 
-        <section class="level has-background-warning is-bold">
-            <div class="level-left">
-                <div class="level-item">
+        <section className="level has-background-warning is-bold">
+            <div className="level-left">
+                <div className="level-item">
                     
-                    <div class = "dropdown is-hoverable">
-                        <div class = "dropdown-trigger">
-                           <button class = "button" aria-haspopup = "true" aria-controls = "dropdown-menu4">
+                    <div className = "dropdown is-hoverable">
+                        <div className = "dropdown-trigger">
+                           <button className = "button" aria-haspopup = "true" aria-controls = "dropdown-menu4">
                               <span>Select Track</span>
-                              <span class = "icon is-small">
-                                 <i class = "fas fa-angle-down" aria-hidden = "true"></i>
+                              <span className = "icon is-small">
+                                 <i className = "fas fa-angle-down" aria-hidden = "true"></i>
                               </span>
                            </button>
                         </div>
-                        <div class = "dropdown-menu" id = "dropdown-menu" role = "menu">
-                           <div class = "dropdown-content">
-                              <a href = "#" class = "dropdown-item">Track 0</a>
-                              <a class = "dropdown-item">Track 1</a>
-                              <a href = "#" class = "dropdown-item is-active">Track 2</a>
-                              <a href = "#" class = "dropdown-item">Track 3</a>
-                              <a href = "#" class = "dropdown-item">Track 4</a>
+                        <div className = "dropdown-menu" id = "dropdown-menu" role = "menu">
+                           <div className = "dropdown-content">
+                              <a href = "#" className = "dropdown-item">Track 0</a>
+                              <a className = "dropdown-item">Track 1</a>
+                              <a href = "#" className = "dropdown-item is-active">Track 2</a>
+                              <a href = "#" className = "dropdown-item">Track 3</a>
+                              <a href = "#" className = "dropdown-item">Track 4</a>
                            </div>
                         </div>
                      </div>
@@ -48,13 +48,13 @@ export default function homePage() {
                 </div>
                    
             </div>
-            <div class="level-right">
-                <div class="field has-addons">
-                    <p class="control">
-                      <input class="input" type="text" placeholder="..."/>
+            <div className="level-right">
+                <div className="field has-addons">
+                    <p className="control">
+                      <input className="input" type="text" placeholder="..."/>
                     </p>
-                    <p class="control">
-                      <button class="button">
+                    <p className="control">
+                      <button className="button">
                         Search
                       </button>
                     </p>
@@ -70,27 +70,27 @@ export default function homePage() {
         <h3>vid previews</h3>
 
         </div>
-        <div class="previews">
+        <div className="previews">
 {/*             
-            <div class="row">
-                <div class="column">
+            <div className="row">
+                <div className="column">
                   <img src="bhangrajeet.png" alt="Snow" style="width:100%">
                 </div>
-                <div class="column">
+                <div className="column">
                   <img src="bhangrajeet.png" alt="Forest" style="width:100%">
                 </div>
-                <div class="column">
+                <div className="column">
                   <img src="bhangrajeet.png" alt="Mountains" style="width:100%">
                 </div>
               </div>
-              <div class="row">
-                <div class="column">
+              <div className="row">
+                <div className="column">
                   <img src="bhangrajeet.png" alt="Snow" style="width:100%">
                 </div>
-                <div class="column">
+                <div className="column">
                   <img src="bhangrajeet.png" alt="Forest" style="width:100%">
                 </div>
-                <div class="column">
+                <div className="column">
                   <img src="bhangrajeet.png" alt="Mountains" style="width:100%">
                 </div>
               </div> */}
@@ -99,24 +99,24 @@ export default function homePage() {
         <div><h3>vid inputs</h3></div>
         <div>
            
-            {/* <div class="vidinput">
-                <div class="rowv">
-                    <div class="columnv">
+            {/* <div className="vidinput">
+                <div className="rowv">
+                    <div className="columnv">
                       <img src="bhangrajeet.png" alt="Snow" style="width:100%">
                     </div>
-                    <div class="columnv">
+                    <div className="columnv">
                       <img src="bhangrajeet.png" alt="Forest" style="width:100%">
                     </div>
-                    <div class="columnv">
+                    <div className="columnv">
                       <img src="bhangrajeet.png" alt="Mountains" style="width:100%">
                     </div>
-                    <div class="columnv">
+                    <div className="columnv">
                         <img src="bhangrajeet.png" alt="Snow" style="width:100%">
                       </div>
-                      <div class="columnv">
+                      <div className="columnv">
                         <img src="bhangrajeet.png" alt="Forest" style="width:100%">
                       </div>
-                      <div class="columnv">
+                      <div className="columnv">
                         <img src="bhangrajeet.png" alt="Mountains" style="width:100%">
                       </div>
                   </div>

@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import homePage from './pages/homepage.js';
+import firstPage from './pages/FirstPage.js';
 
 function App() {
   return (
@@ -20,7 +20,8 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    homePage()
+    //homePage()
+    firstPage()
 
   );
 }
