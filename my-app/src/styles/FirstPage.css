@@ -4,9 +4,23 @@
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+    z-index: -1;
   }
 
 .svg-container { 
     max-height: 50px;
     max-width: 1000px;
+}
+
+.login-container {
+    background-color: rgb(180,180,180,0.3);
+    border-radius: 10px;
+}
+
+.loginform {
+    padding: 20px;
+}
+
+.button.is-dark {
+    margin-right: 5px;
 }

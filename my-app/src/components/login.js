@@ -1,9 +1,9 @@
-
+import 'bulma/css/bulma.css';
 
 export default function login() {
-    return (<div>
-                <h1 className="title">Login</h1>
-                <form>
+    return (<div className="login-container">
+                <form className="loginform">
+                    <h1 className="title">Login</h1>
                     <div className="field">
                         <label className="label">Username</label>
                         <div className="control">
