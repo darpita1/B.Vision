@@ -4,9 +4,9 @@ import Profile from '../components/profile.js';
 function ProfilePage() {
     
     return (
-        <div className="profilepage">
+        <section className="profile-section section">
             <Profile name="John Doe" title="instructor" />
-        </div>
+        </section>
     );
 
 }
