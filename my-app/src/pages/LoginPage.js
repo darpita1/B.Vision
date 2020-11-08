@@ -2,7 +2,7 @@ import 'bulma/css/bulma.css';
 import './../styles/FirstPage.css';
 import React, {Component} from 'react';
 import renderLogo from '../logo/logo.js';
-import Login from '../components/Login';
+import Login from '../components/login.js';
 import bg from './bg.mp4';
 
 class LoginPage extends Component {
