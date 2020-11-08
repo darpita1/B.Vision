@@ -1,8 +1,8 @@
 import React from 'react';
-import Profile from './profile';
+import Profile from '../components/profile.js';
 
 function ProfilePage() {
-
+    
     return (
         <div className="profilepage">
             <Profile name="John Doe" title="instructor" />
