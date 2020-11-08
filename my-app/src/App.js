@@ -1,6 +1,7 @@
 import './App.css';
 import homePage from './pages/homepage.js';
-import LoginPage from './pages/loginPage.js';
+import LoginPage from './pages/LoginPage.js';
+import ProfilePage from './pages/profilePage.js';
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
     //   </header>
     // </div>
     //homePage()
-    <LoginPage/>
-
+    //<LoginPage/>
+    <ProfilePage />
 
   );
 }
