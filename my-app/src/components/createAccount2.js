@@ -19,6 +19,7 @@ function CreateAccount2() {
         <div>
             <h1>{userName}</h1>
             <h1>{userPass}</h1>
+            <input type="text" onChange={(e)=> setName(e.target.value)}></input>
             <button onClick={changeName}>change name</button>
         </div>
 

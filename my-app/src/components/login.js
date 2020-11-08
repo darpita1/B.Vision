@@ -19,6 +19,7 @@ class Login extends Component {
                         <label className="label">Username</label>
                         <div className="control">
                             <input className="input" type="text" placeholder="Username" value={this.state.username} name="username" onChange={(event) => this.setState({username:event.target.value})}></input>
+                            {this.state.username}
                         </div>
                     </div>
                     <div className="field">
