@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '../styles/profile.css';
+<<<<<<< HEAD
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 
@@ -19,6 +20,10 @@ function Profile(props) {
 
     readData();
 
+=======
+
+function Profile(props) {
+>>>>>>> 7363c7d9fa4d18ae2c6f5ea0e95973c4046af2a4
     return (
         <div className="profile container"> 
             <h1 className="title is-1">Profile</h1>
@@ -27,8 +32,12 @@ function Profile(props) {
                     <img className="profile-pic" src="https://www-nomadcruise-com.exactdn.com/wp-content/uploads/22-223930_avatar-person-neutral-man-blank-face-buddy-facebook.png" alt="Profile pic" height="200px" width="200px"></img>
                 </div>
                 <div className="column is-6">
+<<<<<<< HEAD
                     <h2 className="title is-2">{nameone}</h2>
                     <h2 className="subtitle is-4">Email: {currentUser.email}</h2>
+=======
+                    <h2 className="title is-2">{props.name}</h2>
+>>>>>>> 7363c7d9fa4d18ae2c6f5ea0e95973c4046af2a4
                     <h4 className="subtitle is-4">{props.title}</h4>
                     
                 </div>
