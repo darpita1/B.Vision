@@ -3,6 +3,7 @@ import '../styles/createAccount.css';
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from "react-router-dom";
+import firebase from 'firebase';
 
 export default function CreateAccount() {
     
@@ -12,9 +13,12 @@ export default function CreateAccount() {
     const ageRef = useRef();
     const[title, setTitle] = useState();
     const { signup } = useAuth();
-
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const database = firebase.database();
+    const rootRef = database.ref("/");
+
     function handleRadio(event) {
         //console.log(event.target.value);
         setTitle(event.target.value);
@@ -29,12 +33,22 @@ export default function CreateAccount() {
             setError("");
             setLoading(true);
             let a = await signup(usernameRef.current.value, passwordRef.current.value);
+            setData();
             // another function that will handle the data and put it into the database
         } catch {
             setError("Account already exists ");
         }
         
         setLoading(false);
+    }
+
+    function setData() {
+        firebase.database().ref('/users/' + usernameRef.current.value).set({
+            username: usernameRef.current.value,
+            name: nameRef.current.value,
+            age: ageRef.current.value,
+            title: title
+        });
     }
 
     return (<div className="create-account-container container">
