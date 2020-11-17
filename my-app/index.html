@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+<!-- This pulls Uppy from our CDN. Alternatively use `npm i @uppy/robodog --save` -->
+<!-- if you want smaller self-hosted bundles and/or to use modern JavaScript -->
+<link href="//transloadit.edgly.net/releases/uppy/robodog/v1.6.7/robodog.min.css" rel="stylesheet">
+<script src="//transloadit.edgly.net/releases/uppy/robodog/v1.6.7/robodog.min.js"></script>
+<button id="browse">Compile</button>
+<!-- <html>
+  <body>
+    <div id="playerContainer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/indigo-player@1/lib/indigo-player.js"></script>
+    <a href="index2.html">Result</a>
+    <script>
+      const config = {
+        sources: [
+          {
+            type: 'mp4',
+            src: 'http://tmp-us-east-1.transloadit.net/47fe08fec6494ac09b6c36c0d102ce5c.mp4',
+          }
+        ],
+      };
+
+      const element = document.getElementById('playerContainer');
+      const player = IndigoPlayer.init(element, config);
+
+      // You can use the player object now to access the player and it's methods (play, pause, ...)
+    </script>
+  </body>
+</html> -->
+<script>
+    var link = ""
+</script>
+<script>
+  document.getElementById('browse').addEventListener('click', function () {
+    var uppy = window.Robodog.pick({
+      providers: ['url', 'webcam', 'dropbox'],
+      waitForEncoding: true,
+      alwaysRunAssembly: true, // <-- Since these Instructions do not require uploads
+      params: {
+        // To avoid tampering, use Signature Authentication
+        auth: { key: 'e4d146a118544499a1c35218189641e9' },
+        template_id: '488413e8632c435cabeed9dd1d9fd6b1'
+      }
+    }).then(function (bundle) {
+      // Due to `waitForEncoding: true` this is fired after encoding is done.
+      // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
+      // for Async Mode where your back-end receives the encoding results
+      // so that your user can be on their way as soon as the upload completes.
+    //   console.log(bundle.transloadit) // Array of Assembly Statuses
+      console.log(bundle.results[6]['url'])     // Array of all encoding results
+      link = bundle.results[6]['url']
+    }).catch(console.error)
+  })
+</script>
+<div style="text-align:center"> 
+    <button onclick="playPause()">Play/Pause</button> 
+    <button onclick="makeBig()">Big</button>
+    <button onclick="makeSmall()">Small</button>
+    <button onclick="makeNormal()">Normal</button>
+    <br><br>
+    <video id="video1" width="420">
+      <source src="http://tmp-us-east-1.transloadit.net/47fe08fec6494ac09b6c36c0d102ce5c.mp4" type="video/mp4">
+      <source src="mov_bbb.ogg" type="video/ogg">
+      Your browser does not support HTML video.
+    </video>
+</div> 
+<script> 
+    var myVideo = document.getElementById("video1"); 
+    
+    function playPause() { 
+      if (myVideo.paused) 
+        myVideo.play(); 
+      else 
+        myVideo.pause(); 
+    } 
+    
+    function makeBig() { 
+        myVideo.width = 560; 
+    } 
+    
+    function makeSmall() { 
+        myVideo.width = 320; 
+    } 
+    
+    function makeNormal() { 
+        myVideo.width = 420; 
+    } 
+</script> 
+</body> 
+</html>
