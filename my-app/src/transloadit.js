@@ -1,6 +1,6 @@
 import TransloaditClient from '/node_modules/transloadit';
 
-export function concat(path1, path2, path3, path4, path5, path6) {
+export function concat(path1, path2, path3, path4, path5, path6, audio_path) {
 
     const client = new TransloaditClient({
         authKey: '6f97d95d85774c6babe468427f0ae918',
@@ -9,6 +9,12 @@ export function concat(path1, path2, path3, path4, path5, path6) {
 
     const template = {
         "steps": {
+            "imported_audio": {
+                "robot": "/dropbox/import",
+                "result": "true",
+                "credentials": "B.Vision",
+                "path": audio_path
+            },
             "imported_1": {
                 "robot": "/dropbox/import",
                 "result": "true",
@@ -145,6 +151,22 @@ export function concat(path1, path2, path3, path4, path5, path6) {
                 "ffmpeg_stack": "v3.3.3",
                 "preset": "ipad-high"
             },
+            "add_audio": {
+                "robot": "/video/merge",
+                "use": [
+                    {
+                        "name": "imported_audio",
+                        "as": "audio"
+                    },
+                    {
+                        "name": "concatenated",
+                        "as": "video"
+                    }
+                ],
+                "result": true,
+                "ffmpeg_stack": "v3.3.3",
+                "preset": "ipad-high"
+            },
             "exported": {
                 "use": [
                     "imported_1",
@@ -160,6 +182,8 @@ export function concat(path1, path2, path3, path4, path5, path6) {
                     "imported_5_resized",
                     "imported_6",
                     "imported_6_resized",
+                    "imported_audio",
+                    "add_audio"
                 ],
                 "robot": "/dropbox/store",
                 "credentials": "B.Vision"
