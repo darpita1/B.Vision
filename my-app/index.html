@@ -28,9 +28,9 @@
     </script>
   </body>
 </html> -->
-<script>
-    var link = ""
-</script>
+<!-- <script>
+    var link = ""      THIS IS WHERE WE ATTEMPTED TO STORE THE URL IN
+</script> -->
 <script>
   document.getElementById('browse').addEventListener('click', function () {
     var uppy = window.Robodog.pick({
@@ -49,7 +49,7 @@
       // so that your user can be on their way as soon as the upload completes.
     //   console.log(bundle.transloadit) // Array of Assembly Statuses
       console.log(bundle.results[6]['url'])     // Array of all encoding results
-      link = bundle.results[6]['url']
+      //link = bundle.results[6]['url'] //THIS IS THE RESULTED VIDEO THAT WE NEED FROM TRANSLOADIT
     }).catch(console.error)
   })
 </script>
@@ -60,7 +60,8 @@
     <button onclick="makeNormal()">Normal</button>
     <br><br>
     <video id="video1" width="420">
-      <source src="http://tmp-us-east-1.transloadit.net/47fe08fec6494ac09b6c36c0d102ce5c.mp4" type="video/mp4">
+      <source src="http://tmp-us-east-1.transloadit.net/47fe08fec6494ac09b6c36c0d102ce5c.mp4" type="video/mp4"> 
+        <!--ABOVE IS WHERE WE NEED TO PUT THE LINK-->
       <source src="mov_bbb.ogg" type="video/ogg">
       Your browser does not support HTML video.
     </video>
