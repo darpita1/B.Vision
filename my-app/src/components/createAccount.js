@@ -4,10 +4,11 @@ import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory} from "react-router-dom";
 import database from '../firebase.js';
+import axios from 'axios';
 
 export default function CreateAccount() {
     
-    const usernameRef = useRef();
+    const emailRef = useRef();
     const passwordRef = useRef();
     const nameRef = useRef();
     const ageRef = useRef();
@@ -26,14 +27,17 @@ export default function CreateAccount() {
         e.preventDefault();
 
         try {
-            console.log(usernameRef.current.value);
+            console.log(emailRef.current.value);
             console.log(passwordRef.current.value);
             console.log("title:", title);
             setError("");
             setLoading(true);
-            await signup(usernameRef.current.value, passwordRef.current.value);
-            history.push('/profile');
+            await signup(emailRef.current.value, passwordRef.current.value);
+            console.log(emailRef.current.value);
+            console.log(passwordRef.current.value);
             setData(); // SETDATA IS NOT WORKING!
+            history.push('/profile');
+             
 
         } catch {
             setError("Account already exists ");
@@ -42,13 +46,24 @@ export default function CreateAccount() {
         setLoading(false);
     }
 
-    function setData() {
-        console.log("entered set data");
-        database.ref('users/' + usernameRef.current.value).push({
-            username: usernameRef.current.value,
-            name: nameRef.current.value,
-            age: ageRef.current.value,
-            title: title
+    function getUsername(email) {
+        let em_split = email.split('@');
+        let username = em_split[0]+em_split[1].split('.')[0];
+        return username;
+    }
+
+    async function setData() {
+        const username = getUsername(emailRef.current.value);
+        const result = await axios({
+            method: 'put',
+            url: `https://b-vision-18af8.firebaseio.com/users/${username}.json`,
+            data: {
+                email: emailRef.current.value,
+                name: nameRef.current.value,
+                age: ageRef.current.value,
+                title: title
+            }
+
         });
     }
 
@@ -64,7 +79,7 @@ export default function CreateAccount() {
         <div className="field">
             <label className="label">Email Address</label>
             <div className="control">
-                <input className="input" type="text" placeholder="Username" ref={usernameRef} name="username"></input>
+                <input className="input" type="text" placeholder="Username" ref={emailRef} name="username"></input>
             </div>
         </div>
         <div className="field">
