@@ -1,7 +1,8 @@
 import 'bulma/css/bulma.css';
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 
 
 export default function Login() {
@@ -14,6 +15,9 @@ export default function Login() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    const history = useHistory();
+
+
     async function handleSubmit(e) {
         e.preventDefault();
         //console.log(usernameRef);
@@ -23,6 +27,7 @@ export default function Login() {
             setError("");
             setLoading(true);
             let a = await login(usernameRef.current.value, passwordRef.current.value);
+            history.push('/profile');
         } catch {
             setError("Account credentials are wrong");
         }
@@ -51,9 +56,9 @@ export default function Login() {
                         <Link to="/signup">
                             <input className="button is-dark" value="Create Account" type="submit"/>
                         </Link>
-                        <Link to="/profile">
+                        {/* <Link to="/profile"> */}
                             <input className="button is-dark" type="submit" disabled={loading}/>
-                        </Link>
+                        {/* </Link> */}
                     </div>
                 </div>
             </form>

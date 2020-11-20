@@ -2,8 +2,8 @@ import 'bulma/css/bulma.css';
 import '../styles/createAccount.css';
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Link } from "react-router-dom";
-import firebase from 'firebase';
+import { Link, useHistory} from "react-router-dom";
+import database from '../firebase.js';
 
 export default function CreateAccount() {
     
@@ -13,12 +13,11 @@ export default function CreateAccount() {
     const ageRef = useRef();
     const[title, setTitle] = useState();
     const { signup } = useAuth();
-
-    const database = firebase.database();
-    const rootRef = database.ref("/");
-
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const history = useHistory();
+
+
     function handleRadio(event) {
         //console.log(event.target.value);
         setTitle(event.target.value);
@@ -32,9 +31,10 @@ export default function CreateAccount() {
             console.log("title:", title);
             setError("");
             setLoading(true);
-            let a = await signup(usernameRef.current.value, passwordRef.current.value);
-            // another function that will handle the data and put it into the database
-            setData();
+            await signup(usernameRef.current.value, passwordRef.current.value);
+            history.push('/profile');
+            setData(); // SETDATA IS NOT WORKING!
+
         } catch {
             setError("Account already exists ");
         }
@@ -43,7 +43,8 @@ export default function CreateAccount() {
     }
 
     function setData() {
-        firebase.database().ref('/users/' + usernameRef.current.value).set({
+        console.log("entered set data");
+        database.ref('users/' + usernameRef.current.value).push({
             username: usernameRef.current.value,
             name: nameRef.current.value,
             age: ageRef.current.value,
@@ -61,7 +62,7 @@ export default function CreateAccount() {
             </div>
         </div>
         <div className="field">
-            <label className="label">Username</label>
+            <label className="label">Email Address</label>
             <div className="control">
                 <input className="input" type="text" placeholder="Username" ref={usernameRef} name="username"></input>
             </div>

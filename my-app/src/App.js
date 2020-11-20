@@ -4,6 +4,7 @@ import ProfilePage from './pages/profilePage.js';
 import CreateAccountPage from './pages/createAccountPage.js';
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateRoute from './privateRoute.js';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <Router>
         <AuthProvider>
           <Switch>
-            <Route path="/profile" component={ProfilePage} />
+            <PrivateRoute path="/profile" component={ProfilePage} />
             <Route path="/signup" component={CreateAccountPage} />
             <Route path="/" component={LoginPage} />
           </Switch>

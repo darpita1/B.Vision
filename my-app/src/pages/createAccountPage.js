@@ -5,7 +5,7 @@ import '../styles/createAccount.css'
 
 
 function CreateAccountPage() {
-    return (<section class=" outer section">
+    return (<section className=" outer section">
             <CreateAccount />
     </section>);
 }
