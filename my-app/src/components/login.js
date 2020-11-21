@@ -56,9 +56,7 @@ export default function Login() {
                         <Link to="/signup">
                             <input className="button is-dark" value="Create Account" type="submit"/>
                         </Link>
-                        {/* <Link to="/profile"> */}
-                            <input className="button is-dark" type="submit" disabled={loading}/>
-                        {/* </Link> */}
+                        <input className="button is-dark" type="submit" disabled={loading}/>
                     </div>
                 </div>
             </form>

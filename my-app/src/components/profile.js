@@ -3,9 +3,9 @@ import 'bulma/css/bulma.css';
 import '../styles/profile.css';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-function Profile(props) {
+function Profile() {
 
     const { currentUser, logout } = useAuth();
     const [userInfo, setUserInfo] = useState({});
@@ -58,6 +58,9 @@ function Profile(props) {
                     <h4 className="subtitle is-4">Title: {userInfo.title}</h4>
                 </div>
             </div>
+            <Link to="/makevideo">
+                <input className="button is-dark" value="Make Video"/>
+            </Link>
             <div className="video-container">
                 <h2 className="title is-2">Videos</h2>
                 <div className="inner-container">   

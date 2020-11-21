@@ -61,7 +61,8 @@ export default function CreateAccount() {
                 email: emailRef.current.value,
                 name: nameRef.current.value,
                 age: ageRef.current.value,
-                title: title
+                title: title,
+                videos: {}
             }
 
         });

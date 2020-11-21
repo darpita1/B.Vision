@@ -5,7 +5,7 @@ function ProfilePage() {
     
     return (
         <section className="profile-section section">
-            <Profile name="John Doe" title="instructor" />
+            <Profile />
         </section>
     );
 
