@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import 'bulma/css/bulma.css';
-import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import VideoCard from './videoCard.js';
 
 function VideoSelector2() {

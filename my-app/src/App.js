@@ -17,8 +17,9 @@ function App() {
 
             <PrivateRoute path="/profile" component={ProfilePage} />
             <Route path="/signup" component={CreateAccountPage} />
-            <Route exact path="/" component={LoginPage} />
             <Route path="/makevideo" component={MainPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route exact path="/" component={LoginPage}/>
           </Switch>
         </AuthProvider>
       </Router>
