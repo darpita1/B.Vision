@@ -11,6 +11,7 @@ function Profile() {
     const [userInfo, setUserInfo] = useState({});
     const [error, setError] = useState('');
     const history = useHistory();
+    const [loading, setLoading] = useState(false);
 
     async function handleLogout() {
         setError('');
@@ -33,17 +34,19 @@ function Profile() {
     }
 
     async function readData() {
-        const username = getUsername(currentUser.email);
+        if (!loading) {
+            const username = getUsername(currentUser.email);
         const result = await axios({
             method: 'get',
             url: `https://b-vision-18af8.firebaseio.com/users/${username}.json`,
-        });
-        setUserInfo(result.data);
-        
+        }).then((x) => setUserInfo(x.data));
+        setLoading(true);
+        }   
     }
 
     readData();
-
+    if (!userInfo) { return <h2>Loading</h2>; }
+    else {
     return (
         <div className="profile container">
             <input className="logout button is-dark" value="Logout" type="submit" onClick={handleLogout}/>
@@ -69,6 +72,7 @@ function Profile() {
         </div>
     </div>
     );
+    }
 }
 
-export default Profile
+export default Profile;
