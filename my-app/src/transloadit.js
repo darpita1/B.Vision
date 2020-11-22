@@ -1,4 +1,4 @@
-import TransloaditClient from '/node_modules/transloadit';
+const TransloaditClient = require('transloadit');
 
 export function concat(path1, path2, path3, path4, path5, path6, audio_path) {
 
@@ -215,4 +215,4 @@ export function concat(path1, path2, path3, path4, path5, path6, audio_path) {
     })
 }
 
-console.log(concat())
+console.log(concat("comp_426/media/files/dance_videos/bhabi.mp4", "comp_426/media/files/dance_videos/faslaan.mp4", "comp_426/media/files/dance_videos/phulka.mp4", "comp_426/media/files/dance_videos/pataka.mp4", "comp_426/media/files/dance_videos/punjab.mp4", "comp_426/media/files/dance_videos/chaffa.mp4", "comp_426/media/files/wedding_mix.mp3"));
