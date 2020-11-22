@@ -2,6 +2,7 @@ import React from 'react';
 import Autocomplete from '@material-ui/lab/AutoComplete';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import { debounce } from "lodash"; //https://www.youtube.com/watch?v=2qRE071fWxw&ab_channel=SteveGriffith
 
 const useStyles = makeStyles({
     option: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
     },
   });
 
-const videobar = () => {
+const videobar = debounce(() => {
 
     const classes = useStyles();
 
@@ -46,7 +47,7 @@ const videobar = () => {
         )}
       />
     );
-  }
+  }, 500);
   
   const steps = [
     {id: 'v_00', label: 'punjab', path: 'comp_426/media/files/punjab.mp4'},
