@@ -1,17 +1,19 @@
+import React, {Component} from 'react';
 import './App.css';
-import homePage from './pages/homepage.js';
-//import LoginPage from './pages/loginPage.js';
-import ProfilePage from './pages/profilePage.js';
-import CreateAccountPage from './pages/createAccountPage.js';
+import AutoCompleteText from './AutoCompleteText.js';
+import { render } from 'react-dom';
+import countries from './countries.js';
 
-function App() {
-  return (
-    //homePage()
-    //<LoginPage/>
-    //<CreateAccountPage />
-    <ProfilePage />
-
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <AutoCompleteText items={countries} />
+        <br /><br />
+        <AutoCompleteText items={['Adam','Peter','Sarah']} />
+      </div>
+    );
+  }
 }
 
 export default App;
