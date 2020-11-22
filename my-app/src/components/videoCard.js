@@ -11,7 +11,8 @@ function VideoCard(props) {
     // call to database to fill options maybe
 
     function changeImage(e) {
-        let newUrl = `https://firebasestorage.googleapis.com/v0/b/b-vision-18af8.appspot.com/o/${e}.png?alt=media`;
+        let newUrl1 = `https://firebasestorage.googleapis.com/v0/b/b-vision-18af8.appspot.com/o/${e}.png?alt=media`;
+        let newUrl = `https://firebasestorage.googleapis.com/v0/b/b-vision-18af8.appspot.com/o/thumbnails%2F${e}.jpg?alt=media&token=50019ba2-f751-4904-ad74-e6628dc7c89b`
         setone(newUrl);
     }
 
@@ -23,10 +24,26 @@ function VideoCard(props) {
             </div>
             <div className="card-footer">
             <select onChange={(e)=> changeImage(e.target.value)}>
-                    <option value="volvo">Volvo</option>
                     <option value="bhangrajeet">bhangrajeet</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="bedi_dhamaal">Bedi Dhamaal</option>
+                    <option value="bhabi">Bhabi</option>
+                    <option value="chaffa">Chaffa</option>
+                    <option value="dhamaal_roti_var1">Dhamaal Roti Variation</option>
+                    <option value="end_jumps">End Jumps</option>
+                    <option value="faslaan">Faslaan</option>
+                    <option value="fast_jhummar">Fast Jhummar</option>
+                    <option value="jhummar_var1">Jhummar Variation</option>
+                    <option value="pataka">Pataka</option>
+                    <option value="phul_punjab">Phul Punjab</option>
+                    <option value="phulka">Phulka</option>
+                    <option value="phumaniya">Phumaniya</option>
+                    <option value="phumaniya_roll">Phumaniya Roll</option>
+                    <option value="punjab">Punjab</option>
+                    <option value="round_bedi">Round Bedi</option>
+                    <option value="sammi">Sammi</option>
+                    <option value="side_punjab">Side Punjab</option>
+                    <option value="single_dhamaal">Single Dhamaal</option>
+                    <option value="single_dhamaal_var1">Single Dhamaal Variation</option>
                 </select>
             </div>
         </div> );

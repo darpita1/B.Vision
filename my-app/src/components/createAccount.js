@@ -3,7 +3,6 @@ import '../styles/createAccount.css';
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory} from "react-router-dom";
-import database from '../firebase.js';
 import axios from 'axios';
 
 export default function CreateAccount() {
@@ -68,19 +67,21 @@ export default function CreateAccount() {
         });
     }
 
-    // async function setStep() {
+    // async function setStep(name) {
     //     const result = await axios({
     //         method: 'put',
-    //         url: `https://b-vision-18af8.firebaseio.com/stepInfo/pitaTest.json`,
+    //         url: `https://b-vision-18af8.firebaseio.com/stepInfo/${name}.json`,
     //         data: {
-    //            link: "https://youtu.be/S-YuOQhFtaA",
-    //            videoPath: "/dropbox/videos/chaffa.mp4",
-    //            thumbnailPath: "/storage/thumbnails/chaffa.jpg"
+    //             name: "single_dhamaal_var1",
+    //             display_name: name,
+    //             link: "https://youtu.be/w9Gbl6r8ZkE",
+    //             videoPath: "/comp_426/media/files/dance_videos/single_dhamaal_var1.mp4",
+    //             thumbnailPath: "thumbnails/single_dhamaal_var1.jpg"
     //         }
     //     });
     // }
 
-    // setStep();
+    // setStep("Single Dhamaal Variation");
 
 
     return (<div className="create-account-container container">
