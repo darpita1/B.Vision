@@ -68,6 +68,21 @@ export default function CreateAccount() {
         });
     }
 
+    // async function setStep() {
+    //     const result = await axios({
+    //         method: 'put',
+    //         url: `https://b-vision-18af8.firebaseio.com/stepInfo/pitaTest.json`,
+    //         data: {
+    //            link: "https://youtu.be/S-YuOQhFtaA",
+    //            videoPath: "/dropbox/videos/chaffa.mp4",
+    //            thumbnailPath: "/storage/thumbnails/chaffa.jpg"
+    //         }
+    //     });
+    // }
+
+    // setStep();
+
+
     return (<div className="create-account-container container">
     <form className="accountform" onSubmit={handleSubmit}>
         <h1 className="title">Create Account</h1>

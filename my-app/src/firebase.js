@@ -7,7 +7,7 @@ const app = firebase.initializeApp({
         authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
         databaseURL: "https://b-vision-18af8.firebaseio.com",
         projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-        storageBucket: process.env.REACTA_APP_FIREBASE_STORAGE_BUCKET,
+        storageBucket: "b-vision-18af8.appspot.com",
         messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
         appId: process.env.REACT_APP_FIREBASE_APP_ID,
         measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
