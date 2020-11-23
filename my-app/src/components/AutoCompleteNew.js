@@ -74,7 +74,7 @@ function AutoCompleteNew (props) {
         console.log("step", step);
         const result = await axios({
         method: 'get',
-        url: `https://b-vision-18af8.firebaseio.com/stepInfo/${step}.json`,
+        url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/stepInfo/${step}.json`,
         }).then((x) => {
             setStepInfo(x.data);
             setLoading(false);

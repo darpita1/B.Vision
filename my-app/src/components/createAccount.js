@@ -55,7 +55,7 @@ export default function CreateAccount() {
         const username = getUsername(emailRef.current.value);
         const result = await axios({
             method: 'put',
-            url: `https://b-vision-18af8.firebaseio.com/users/${username}.json`,
+            url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${username}.json`,
             data: {
                 email: emailRef.current.value,
                 name: nameRef.current.value,

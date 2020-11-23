@@ -42,12 +42,12 @@ function Profile() {
             const username = getUsername(currentUser.email);
         const result = await axios({
             method: 'get',
-            url: `https://b-vision-18af8.firebaseio.com/users/${username}.json`,
+            url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${username}.json`,
         }).then((x) => setUserInfo(x.data));
         setLoading(true);
         }   
 
-        console.log("render");
+        console.log(editBool);
     }
 
     async function updateInfo(toupdate, param, value) {
@@ -55,7 +55,7 @@ function Profile() {
         obj[`${param}`] = value;
         const result = await axios({
             method: 'patch',
-            url: `https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
+            url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
             data: obj
         });
     }

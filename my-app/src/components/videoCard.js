@@ -33,6 +33,7 @@ function VideoCard(props) {
                     <option value="faslaan">Faslaan</option>
                     <option value="fast_jhummar">Fast Jhummar</option>
                     <option value="jhummar_var1">Jhummar Variation</option>
+                    <option value="jhummar">Jhummar</option>
                     <option value="pataka">Pataka</option>
                     <option value="phul_punjab">Phul Punjab</option>
                     <option value="phulka">Phulka</option>
