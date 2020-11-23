@@ -1,0 +1,13 @@
+/* .autocomplete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.searchContainer {
+    height: 30vh;
+}
+
+.columns, .box {
+    height: 100%;
+}
