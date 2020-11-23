@@ -18,16 +18,36 @@ function Uservideos(props) {
         }
     }
 
-    async function deleteVid(e) {
-        let vid = e.target.id;
-        console.log(vids);
+    async function deleteVid(event) {
+        let vid = event.target.id;
+        console.log("eventid:", vid);
         const result = await axios({
-            method: 'delete',
-            url: `https://b-vision-18af8.firebaseio.com/users/${props.username}/videos/0.json`,
-            withCredentials: true
+            method: 'get',
+            url: `https://b-vision-18af8.firebaseio.com/users/${props.username}/videos.json`,
+        }).then((res) => res.data).then((x) => {
+            console.log("x", x);
+            const index = x.indexOf(vid);
+            console.log("indx", index);
+            if (index > -1) {
+                x.splice(index, 1);
+            }
+            updateInfo(props.username, "videos", x);
         });
-        console.log(vids);
+        readviddata();
     }
+
+
+    async function updateInfo(toupdate, param, value) {
+        const obj = {};
+        obj[`${param}`] = value;
+        const result = await axios({
+            method: 'patch',
+            url: `https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
+            data: obj
+        });
+    }
+
+
     readviddata();
     //console.log("before", vids);
 
@@ -39,10 +59,10 @@ function Uservideos(props) {
             if (vid != 'google.com'){
            return (
             <div>
-                <li key={vid}>
-                    <a className="btn btn-link" href = {vid}> Video </a>
+                <li>
+                    <a className="btn btn-link" key={vid} href = {vid}> Video </a>
                     <button id={vid} className="button is-danger is-small is-outlined" onClick={(e) => deleteVid(e)}>
-                        <span>Delete</span>
+                        <span id={vid}>Delete</span>
                     </button>
                 </li>
                 <br/>
