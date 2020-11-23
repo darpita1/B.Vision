@@ -4,6 +4,7 @@ import '../styles/profile.css';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import Uservideos from './uservideos.js';
 
 function Profile() {
 
@@ -39,16 +40,17 @@ function Profile() {
 
     async function readData() {
         if (!loading) {
+            
             const username = getUsername(currentUser.email);
         const result = await axios({
             method: 'get',
-            url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${username}.json`,
+            url: `https://b-vision-18af8.firebaseio.com/users/${username}.json`,
             withCredientials: true
         }).then((x) => setUserInfo(x.data));
         setLoading(true);
         }   
 
-        console.log(editBool);
+        //console.log(editBool);
     }
 
     async function updateInfo(toupdate, param, value) {
@@ -56,7 +58,7 @@ function Profile() {
         obj[`${param}`] = value;
         const result = await axios({
             method: 'patch',
-            url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
+            url: `https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
             withCredientials: true,
             data: obj
         });
@@ -117,6 +119,8 @@ function Profile() {
     }
     readData();
 
+
+
     function renderData() {
         return (
             <div className="column is-6">
@@ -143,10 +147,13 @@ function Profile() {
                     <input className="button is-dark" value="Make Video"/>
                 </Link>
                 <div className="video-container">
-                    <h2 className="title is-2">Videos</h2>
+                    {/* <h2 className="title is-2">Videos</h2>
                     <div className="inner-container">   
                     {JSON.stringify(currentUser)}
-                </div>
+                    </div> */}
+                    <Uservideos username={getUsername(currentUser.email)} />
+                    
+                    
             </div>
         </div>
         );
