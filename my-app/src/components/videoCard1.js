@@ -27,7 +27,7 @@ function VideoCard1({parentfunction}) {
             <select onChange={(e)=> changeImage(e.target.value)}>
                     <option value=""> </option>
                     <option value="jhummar">Jhummar</option>
-                    <option value="jhummar_var1">Jhummar Variation</option>
+                    <option value="jhummar_var">Jhummar Variation</option>
                     
                 </select>
             </div>

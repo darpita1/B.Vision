@@ -4,12 +4,16 @@ import VideoCard from './videoCard.js';
 import VideoCard1 from './videoCard1.js';
 import VideoCard2 from './videoCard2.js';
 import VideoCard3 from './videoCard3.js';
+import { Link, useHistory } from "react-router-dom";
 
 function VideoSelector2() {
     
     const [one, setone] = useState('');
     const [two, settwo] = useState('');
     const [three, setthree] = useState('');
+    const history = useHistory();
+
+    let finalUrl = "";
 
     function setparentone(value) {
         setone(value);
@@ -21,6 +25,27 @@ function VideoSelector2() {
 
     function setparentthree(value) {
         setthree(value);
+    }
+
+    function getVideoUrl() {
+        console.log(one, two, three);
+        if ((one != '') & (two != '') & (three != '')) {
+            let url = `https://storage.cloud.google.com/b-vision-18af8.appspot.com/concat/${one}_${two}_${three}.mp4`;
+            finalUrl = url;   
+        }   
+        
+
+    }
+
+    function handleMakeVideoButton() {
+        if ((one != '') & (two != '') & (three != '')) {
+        getVideoUrl();
+        console.log("final", finalUrl);
+        history.push({ 
+            pathname: '/renderVideo',
+            state: finalUrl
+           });
+        }
     }
 
     return (
@@ -36,22 +61,10 @@ function VideoSelector2() {
                     <VideoCard3 parentfunction={setparentthree}/>
                 </div>
             </div>
-
-
-    <h1>{one}</h1>
-    <h1>{two}</h1>
-    <h1>{three}</h1>
-            {/* <div className="columns">
-                <div className="column">
-                    <VideoCard number="4"/>
-                </div>
-                <div className="column">
-                    <VideoCard number="5"/>
-                </div>
-                <div className="column">
-                    <VideoCard number="6"/>
-                </div>
-            </div> */}
+            <h1>{one}</h1>
+            <h1>{two}</h1>
+            <h1>{three}</h1>
+            <input className="button is-dark" type="button" value="Make Video" onClick={handleMakeVideoButton}/>
         </div>
     );
 

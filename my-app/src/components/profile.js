@@ -43,6 +43,7 @@ function Profile() {
         const result = await axios({
             method: 'get',
             url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${username}.json`,
+            withCredientials: true
         }).then((x) => setUserInfo(x.data));
         setLoading(true);
         }   
@@ -56,6 +57,7 @@ function Profile() {
         const result = await axios({
             method: 'patch',
             url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
+            withCredientials: true,
             data: obj
         });
     }

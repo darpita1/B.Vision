@@ -24,12 +24,10 @@ function VideoCard3({parentfunction}) {
                 <img src= {one} alt="bvis" width="500px" height="300px"/>
             </div>
             <div className="card-footer">
-            <select onChange={(e)=> changeImage(e.target.value)}>
-            <option value=""> </option>
-                    <option value="dhamaal_roti_var1">Dhamaal Roti Variation</option>
-                    
+                <select onChange={(e)=> changeImage(e.target.value)}>
+                    <option value=""></option>
+                    <option value="end_jumps">End Jumps</option> 
                     <option value="phumaniya">Phumaniya</option>
-                    
                 </select>
             </div>
         </div> );
