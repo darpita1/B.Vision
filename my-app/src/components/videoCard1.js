@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import image1 from '../media/bg_createAccount.JPG';
 
 
-function VideoCard1() {
+function VideoCard1({parentfunction}) {
 
     const [one, setone] = useState("https://tutorials.avideo.com/view/img/video-placeholder-gray.png");
 
@@ -14,6 +14,7 @@ function VideoCard1() {
         let newUrl1 = `https://firebasestorage.googleapis.com/v0/b/b-vision-18af8.appspot.com/o/${e}.png?alt=media`;
         let newUrl = `https://firebasestorage.googleapis.com/v0/b/b-vision-18af8.appspot.com/o/thumbnails%2F${e}.jpg?alt=media&token=50019ba2-f751-4904-ad74-e6628dc7c89b`
         setone(newUrl);
+        parentfunction(e);
     }
 
     return (
@@ -24,8 +25,8 @@ function VideoCard1() {
             </div>
             <div className="card-footer">
             <select onChange={(e)=> changeImage(e.target.value)}>
-                    
-                    <option value="fast_jhummar">Fast Jhummar</option>
+                    <option value=""> </option>
+                    <option value="jhummar">Jhummar</option>
                     <option value="jhummar_var1">Jhummar Variation</option>
                     
                 </select>
