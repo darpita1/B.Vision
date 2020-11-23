@@ -3,8 +3,12 @@ import VideoSelector2 from '../components/videoSelector2.js';
 import AutoCompleteNew from '../components/AutoCompleteNew.js'
 import { Link } from 'react-router-dom';
 import concat from '../transloadit1.js';
+import { useAuth } from '../contexts/AuthContext';
 
 function MainPage() {
+    const videoName = 'test.mp4'
+    const { storeVideo } = useAuth();
+
     return (
         <div>
             <nav className="navbar is-info">

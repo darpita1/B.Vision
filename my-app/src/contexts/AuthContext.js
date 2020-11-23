@@ -11,6 +11,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const[currentUser, setCurrentUser] = useState();
     const[loading, setLoading] = useState(true);
+    const[videoUrl, setVideoUrl] = useState('');
 
     function login(username, password) {
         return auth.signInWithEmailAndPassword(username, password);
@@ -24,6 +25,10 @@ export function AuthProvider({ children }) {
         return auth.signOut();
     }
 
+    function storeVideo(url) {
+        setVideoUrl(url);
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged( user => {
             setCurrentUser(user);
@@ -33,7 +38,7 @@ export function AuthProvider({ children }) {
         return unsubscribe;
     }, []);
 
-    const value = {currentUser, signup, login, logout};
+    const value = {currentUser, signup, login, logout, storeVideo};
 
     return (
         <AuthContext.Provider value={value}>
