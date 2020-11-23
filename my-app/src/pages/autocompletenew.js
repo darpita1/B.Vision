@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useDebounce } from 'react';
+import '../AutoCompleteText.css';
 
 function AutoCompleteNew (props) {
 
@@ -65,7 +66,7 @@ function AutoCompleteNew (props) {
     }
 
     return (
-        <div>
+        <div className="AutoCompleteText">
                 <input value ={text} onChange={otcwrapper} type="text" />
                 { display ? renderSuggestions() : null  }
         </div>

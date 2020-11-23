@@ -9,11 +9,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AutoCompleteText items={countries} />
-        <br /><br />
-        <AutoCompleteText items={['Adam','Peter','Sarah']} />
-        <br/>
-        <AutoCompleteNew items={countries}/>
+        <div className="App-Component">
+          <div className="App-Component">
+            <AutoCompleteText items={countries} />
+            <br /><br />
+            <AutoCompleteText items={['Adam','Peter','Sarah']} />
+            <br/>
+            <AutoCompleteNew items={countries}/>
+          </div>
+        </div>
       </div>
     );
   }
