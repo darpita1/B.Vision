@@ -8,6 +8,7 @@ export default function RenderVideoPage(props) {
     const location = useLocation();
     const history = useHistory();
     const { currentUser } = useAuth();
+    const [notSaved, setNotSaved] = useState('true');
 
     
    
@@ -19,8 +20,9 @@ export default function RenderVideoPage(props) {
     }
 
     async function handleSave() {
-        const username = getUsername(currentUser.email);
-        const result = await axios({
+        if (notSaved){
+            const username = getUsername(currentUser.email);
+            const result = await axios({
             method: 'get',
             url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${username}/videos.json`,
         }).then((res) => res.data).then((x) => {
@@ -28,6 +30,7 @@ export default function RenderVideoPage(props) {
             x.push(location.state)
             updateInfo(username, "videos", x);
         });
+    }
     }
 
 
@@ -39,6 +42,8 @@ export default function RenderVideoPage(props) {
             url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/users/${toupdate}/.json`,
             data: obj
         });
+        console.log("saved");
+        setNotSaved(false);
     }
 
     function handleRedo() {

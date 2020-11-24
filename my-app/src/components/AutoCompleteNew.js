@@ -92,19 +92,25 @@ function AutoCompleteNew (props) {
     return (
         <div className="container searchContainer">
             <div className="columns">
-                <div className=" autocomplete container column is-6">
+                <div className=" autocomplete container column is-4">
                     <div className="inputWrapper">
                     <h2 className="title">Learn Bhangra!</h2>
                         <input className="autocomplete input is-small" value={text} onChange={otcwrapper} type="text" />
                         { display ? renderSuggestions() : null  }
                     </div>
                 </div>
+                <div className=" autocomplete container column">
+                    <div className="inputWrapper">
+                    <h2 className="title">View Step</h2>
+                        
+                    </div>
+                </div>
                 <div className="column">
-                    <div className="box columns">
+                    <div className="columns">
                         <div className = "column">
                         <h2 className="title">Step Info</h2>
                         <h2 className="subtitle">{!loading ? stepInfo.display_name : null}</h2>
-                        {!loading ? <a className="subtitle" href={stepInfo.link} target="_blank">Click here for Tutorial!</a> : null}
+                        {!loading ? <a href={stepInfo.link} target="_blank">Click here for Tutorial!</a> : null}
                         </div>
                         <div className="column">
                         {!loading ? getQR(stepInfo.link) : null}

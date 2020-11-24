@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from '../firebase';
+import axios from 'axios';
 
 
 const AuthContext = React.createContext();
@@ -11,7 +12,6 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const[currentUser, setCurrentUser] = useState();
     const[loading, setLoading] = useState(true);
-    const[videoUrl, setVideoUrl] = useState('');
 
     function login(username, password) {
         return auth.signInWithEmailAndPassword(username, password);
@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
     function logout() {
         return auth.signOut();
     }
+    
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged( user => {
