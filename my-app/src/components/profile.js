@@ -6,6 +6,8 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import Uservideos from './uservideos.js';
 
+
+
 function Profile() {
 
     const { currentUser, logout } = useAuth();
@@ -124,11 +126,10 @@ function Profile() {
 
     function renderData() {
         return (
-            <div className="center">
-                <h2 className="prof title is-2">{userInfo.name}</h2>
-                <h2 className="prof subtitle is-4">Email: {currentUser.email}</h2>
-                <h4 className="prof subtitle is-4">Title: {userInfo.title}</h4>
-                <a onClick={toggle}>Edit</a>
+            <div className="center info box">
+                <h2 className="prof name font">{userInfo.name}</h2>
+                <h2 className="prof font">{currentUser.email}</h2>
+                <h4 className="prof font titles">{userInfo.title}</h4>
             </div>);
     }
     function toggleShow() {
@@ -139,19 +140,27 @@ function Profile() {
     else {
         return (
             <div className="profile container">
-                <input className="logout button is-dark" value="Logout" type="submit" onClick={handleLogout} readOnly />
-                <h1 className="title is-1">Profile</h1>
                 <div className="profile-info container">
-                    <div className="">
-                        <img className="profile-pic" src="https://www-nomadcruise-com.exactdn.com/wp-content/uploads/22-223930_avatar-person-neutral-man-blank-face-buddy-facebook.png" alt="Profile pic" height="200px" width="200px"></img>
+                    <div className="is-flex is-horizontal-center">
+                        <img className="profile-pic center" src="https://i.pinimg.com/474x/80/d3/47/80d3478d984cf0a539f8805f32ee15b7.jpg" alt="Profile pic" height="150px" width="150px"></img>
                     </div>
+                    <br/>
                     {editBool ? renderModal() : renderData() }
                 </div>
-                <Link to="/makevideo">
-                    <input className="button is-dark" value="Make Video"/>
-                </Link>
-                <div className="video-container">
-                    <input className="button is-dark" value="See My Video" onClick={toggleShow}/>
+                <br/>
+                <div className= "center info box">
+                    <h2 className="font" > Instructions</h2>
+                </div>
+                
+                <div className="columns buttons">
+                    <Link to="/makevideo">
+                        <a className="button is-dark" value="Make Video">Make Video</a>
+                    </Link>
+                    <a className="button is-dark" value="See My Video" onClick={toggleShow}>See My Videos</a>
+                    <a className="button is-dark" value="Edit" onClick={toggle}>Edit Profile</a>
+                    <a className="logout button is-dark" value="Logout" type="submit" onClick={handleLogout} readOnly>Logout</a>
+                </div> 
+                    <div className="video-container">
                     {showVids ? <Uservideos username={getUsername(currentUser.email)} /> : null}
             </div>
         </div>
