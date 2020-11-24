@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import "./../styles/render.css";
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from 'axios';
@@ -9,9 +10,6 @@ export default function RenderVideoPage(props) {
     const history = useHistory();
     const { currentUser } = useAuth();
     const [notSaved, setNotSaved] = useState('true');
-
-    
-   
 
     function getUsername(email) {
         let em_split = email.split('@');
@@ -33,7 +31,6 @@ export default function RenderVideoPage(props) {
     }
     }
 
-
     async function updateInfo(toupdate, param, value) {
         const obj = {};
         obj[`${param}`] = value;
@@ -51,24 +48,29 @@ export default function RenderVideoPage(props) {
     }
 
     return (
-    <div>
-        <nav className="navbar is-info">
-            <div className="navbar-brand">
-                <a className="navbar-item">
-                    B.Vision
-                </a>
+        <div className="background">
+        <nav className="navbar is-grey-darker">
+        <div className="navbar-brand">
+            <h2 className="big is-family-secondary navbar-item">
+                B.Vision
+            </h2>
+        </div>
+        <div className="navbar-menu">
+            <div className="navbar-end">
+                <Link className="medium navbar-item" to="/profile">Profile</Link> 
             </div>
-            <div className="navbar-menu">
-                <div className="navbar-end">
-                    <Link className="navbar-item" to="/profile">Profile</Link> 
-                </div>
-            </div>
+        </div>
         </nav>
-        {/* <video width="320" height="240" src={location.state} type="video/mp4" controls/> */}
-        <video width="500" height="400" controls>
+        <div className="fully-center vidss">
+        <video width="700" height="550" controls>
             <source src={location.state} type="video/mp4"/>
         </video>
-        <input className="button is-dark" type="button" onClick={handleSave} value="Save Video" />
-        <input className="button is-dark" type="button" onClick={handleRedo} value="Redo"/>
-    </div>);
+        </div>
+        <div className="fully-center buttonss">
+            <input className="button is-dark" type="button" onClick={handleSave} value="Save Video" />
+            <input className="button is-dark" type="button" onClick={handleRedo} value="Redo"/>
+        </div>
+    </div>
+        
+    );
 }

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import 'bulma/css/bulma.css';
 import image1 from '../media/bg_createAccount.JPG';
+import '../styles/mainPage.css'
 
 
 function VideoCard2({parentfunction}) {
 
-    const [one, setone] = useState("https://tutorials.avideo.com/view/img/video-placeholder-gray.png");
+    const [one, setone] = useState("https://storage.cloud.google.com/b-vision-18af8.appspot.com/bhangrajeet.png?_ga=2.194401261.-1912959919.1606033974");
 
     
     // call to database to fill options maybe
@@ -24,7 +25,7 @@ function VideoCard2({parentfunction}) {
                 <img src= {one} alt="bvis" width="500px" height="300px"/>
             </div>
             <div className="card-footer">
-            <select onChange={(e)=> changeImage(e.target.value)}>
+            <select className="select full" onChange={(e)=> changeImage(e.target.value)}>
                     
                     <option value=""> </option>
                     <option value="pataka">Pataka</option>

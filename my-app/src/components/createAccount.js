@@ -39,7 +39,7 @@ export default function CreateAccount() {
              
 
         } catch {
-            setError("Account already exists ");
+            setError("Something went wrong. Try again");
         }
         
         setLoading(false);

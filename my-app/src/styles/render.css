@@ -1,0 +1,55 @@
+.space {
+    margin: 10px auto;
+}
+
+.full {
+    width: 100%
+}
+
+.big {
+    font-size: 30px;
+}
+
+.medium {
+    font-size: 24px;
+}
+
+.is-grey-darker {
+    background-color: rgba(249, 245, 250, 0.74);
+
+}
+.background {
+    background-color: hsl(204, 94%, 14%);
+    height: 100vh;
+}
+
+.card {
+    background-color: rgba(232, 232, 240, 0.774);
+    border-radius: 10px;
+}
+
+.buttoncenter {
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.justify-center {
+    justify-content: center;
+    text-align: center;
+
+}
+
+.fully-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonss {
+    margin: 20px;
+}
+
+.vidss {
+    margin-top: 50px
+}

@@ -149,7 +149,8 @@ function Profile() {
                 </div>
                 <br/>
                 <div className= "center info box">
-                    <h2 className="font" > Instructions</h2>
+                    <h4 className="prof">Welcome to your B.Vision profile page!</h4>
+                    <h4 className="prof">Use the buttons below to navigate!</h4>
                 </div>
                 
                 <div className="columns buttons">

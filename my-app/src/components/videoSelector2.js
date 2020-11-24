@@ -61,10 +61,9 @@ function VideoSelector2() {
                     <VideoCard3 parentfunction={setparentthree}/>
                 </div>
             </div>
-            <h1>{one}</h1>
-            <h1>{two}</h1>
-            <h1>{three}</h1>
-            <input className="button is-dark" type="button" value="Make Video" onClick={handleMakeVideoButton}/>
+            <div className="buttoncenter">
+                <input className="button is-grey-darker" type="button" value="Make Video" onClick={handleMakeVideoButton}/>
+            </div>
         </div>
     );
 

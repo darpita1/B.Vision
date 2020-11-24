@@ -14,7 +14,7 @@ function SearchContainer() {
                     </div>
                 </div>
             </div>
-            <AutoCompleteNew items={['Bedi Dhamaal', 'Bhabi', 'Chaffa', 'Dhamaal Roti Variation', 'End Jumps', 'Faslaan', 'Fast Jhummar', 'Jhummar Variation', 'Pataka', 'Phul Punjab', 'Phulka', 'Phumaniya', 'Punjab', 'Round Bedi', 'Sammi', 'Side Punjab', 'Single Dhamaal', 'Single Dhamaal Variation']} />
+            <AutoCompleteNew items={['Jhummar', 'Bedi Dhamaal', 'Bhabi', 'Chaffa', 'Dhamaal Roti Variation', 'End Jumps', 'Faslaan', 'Fast Jhummar','Jhummar Variation', 'Pataka', 'Phul Punjab', 'Phulka', 'Phumaniya', 'Punjab', 'Round Bedi', 'Sammi', 'Side Punjab', 'Single Dhamaal', 'Single Dhamaal Variation']} />
 
         </div>
     );
