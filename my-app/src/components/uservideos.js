@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 function Uservideos(props) {
@@ -7,7 +7,7 @@ function Uservideos(props) {
     const [loading, setLoading] = useState(false);
 
     async function readviddata() {
-        console.log(props.username);       
+        // console.log(props.username);       
         if (!loading) {
             const result = await axios({
                 method: 'get',
@@ -19,20 +19,18 @@ function Uservideos(props) {
                 }
             });
             setLoading(true);
-            console.log("vids", vids);
+            // console.log("vids", vids);
         }
     }
 
     async function deleteVid(event) {
         let vid = event.target.id;
-        console.log("eventid:", vid);
+        // console.log("eventid:", vid);
         const result = await axios({
             method: 'get',
             url: `https://b-vision-18af8.firebaseio.com/users/${props.username}/videos.json`,
         }).then((res) => res.data).then((x) => {
-            console.log("x", x);
             const index = x.indexOf(vid);
-            console.log("indx", index);
             if (index > -1) {
                 x.splice(index, 1);
                 setvids(x);
@@ -58,13 +56,13 @@ function Uservideos(props) {
        <div>
            <br/>
         <h1 className="title"> My Videos </h1>
-        {vids.map((vid) =>{
+        {vids.map((vid, index) =>{
             if (vid != 'google.com'){
            return (
             <div>
                 <li>
-                    <a className="btn btn-link" key={vid} href = {vid} target="_blank"> Video </a>
-                    <button id={vid} className="button is-danger is-small is-outlined" onClick={(e) => deleteVid(e)}>
+                    <a className="btn btn-link" key={vid} href = {vid} target="_blank"> Video {index}     </a>
+                    <button id={vid} className="deleteButton button is-danger is-small is-outlined" onClick={(e) => deleteVid(e)}>
                         <span id={vid}>Delete</span>
                     </button>
                 </li>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useDebounce } from 'react';
+import React, { useState } from 'react';
 import '../styles/autocomplete.css'
 import 'bulma/css/bulma.css';
 import '../styles/searchContainer.css';
 import axios from 'axios';
 
 
-function AutoCompleteNew (props) {
+function AutoCompleteNew(props) {
 
     const [suggestions, setSuggestions] = useState([]);
     const [text, setText] = useState('');
@@ -33,6 +33,7 @@ function AutoCompleteNew (props) {
     function onTextChange(e) {
         setDisplay(false);
         const { items } = props;
+        items.push("Jhummar");
         const value = e.target.value;
         let suggestions1 =[];
         
@@ -82,7 +83,6 @@ function AutoCompleteNew (props) {
     }
 
     async function readStepData(step) {
-        console.log("step", step);
         const result = await axios({
         method: 'get',
         url: `https://cors-anywhere.herokuapp.com/https://b-vision-18af8.firebaseio.com/stepInfo/${step}.json`,

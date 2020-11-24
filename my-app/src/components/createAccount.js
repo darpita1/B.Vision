@@ -26,15 +26,10 @@ export default function CreateAccount() {
         e.preventDefault();
 
         try {
-            console.log(emailRef.current.value);
-            console.log(passwordRef.current.value);
-            console.log("title:", title);
             setError("");
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
-            console.log(emailRef.current.value);
-            console.log(passwordRef.current.value);
-            setData(); // SETDATA IS NOT WORKING!
+            setData(); 
             history.push('/profile');
              
 

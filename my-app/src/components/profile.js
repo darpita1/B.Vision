@@ -50,7 +50,6 @@ function Profile() {
             withCredientials: true
         }).then((x) => setUserInfo(x.data));
         setLoading(!loading);
-        console.log("userInfo", userInfo);
         }   
 
         //console.log(editBool);
@@ -76,7 +75,6 @@ function Profile() {
         userInfo.age = nameRef.current.value;
         userInfo.title = title;
         toggle();
-        console.log("done updating");
     }
 
     function handleRadio(event) {
@@ -155,7 +153,7 @@ function Profile() {
                 
                 <div className="columns buttons">
                     <Link to="/makevideo">
-                        <a className="button is-dark" value="Make Video">Make Video</a>
+                        <button className="button is-dark" value="Make Video">Make Video</button>
                     </Link>
                     <a className="button is-dark" value="See My Video" onClick={toggleShow}>See My Videos</a>
                     <a className="button is-dark" value="Edit" onClick={toggle}>Edit Profile</a>

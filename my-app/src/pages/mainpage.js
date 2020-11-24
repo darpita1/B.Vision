@@ -6,13 +6,12 @@ import blur from './blur.mp4';
 import VideoSelector2 from '../components/videoSelector2.js';
 import AutoCompleteNew from '../components/AutoCompleteNew.js'
 import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
 
 
 function MainPage() {
     const [steps, setSteps] = useState({});
      return (
-        <div className="">
+        <div>
             <video id="myVideo" muted>
                 <source src={blur} type='video/mp4' />
             </video>

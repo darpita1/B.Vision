@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import 'bulma/css/bulma.css';
-import image1 from '../media/bg_createAccount.JPG';
 import '../styles/mainPage.css'
 
 
@@ -8,8 +7,7 @@ function VideoCard3({parentfunction}) {
 
     const [one, setone] = useState("https://storage.cloud.google.com/b-vision-18af8.appspot.com/bhangrajeet.png?_ga=2.194401261.-1912959919.1606033974");
 
-    
-    // call to database to fill options maybe
+
 
     function changeImage(e) {
         let newUrl1 = `https://firebasestorage.googleapis.com/v0/b/b-vision-18af8.appspot.com/o/${e}.png?alt=media`;

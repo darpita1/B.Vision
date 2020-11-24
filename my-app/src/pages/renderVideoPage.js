@@ -3,6 +3,7 @@ import "./../styles/render.css";
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import axios from 'axios';
+import blur from './blur.mp4'
 
 export default function RenderVideoPage(props) {
 
@@ -49,6 +50,9 @@ export default function RenderVideoPage(props) {
 
     return (
         <div className="background">
+             <video id="myVideo" muted>
+                <source src={blur} type='video/mp4' />
+            </video>
         <nav className="navbar is-grey-darker">
         <div className="navbar-brand">
             <h2 className="big is-family-secondary navbar-item">
@@ -61,13 +65,13 @@ export default function RenderVideoPage(props) {
             </div>
         </div>
         </nav>
-        <div className="fully-center vidss">
-        <video width="700" height="550" controls>
+        <div className="transparent fully-center vidss">
+        <video className="rounded" width="700" height="550" controls>
             <source src={location.state} type="video/mp4"/>
         </video>
         </div>
         <div className="fully-center buttonss">
-            <input className="button is-dark" type="button" onClick={handleSave} value="Save Video" />
+            <input className="button is-dark" type="button" onClick={handleSave} value="Save Video" disabled={!notSaved}/>
             <input className="button is-dark" type="button" onClick={handleRedo} value="Redo"/>
         </div>
     </div>
