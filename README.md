@@ -8,7 +8,7 @@ We use Learn Bhangra youtube videos to teach our users the form and technique be
 
 Our QR code is generated through the use of an API: QR Code Generator
 
-Create a QR Code: https://api.qrserver.com/v1/create-qr-code/?size=<length>x<widgth>&data=<URL> 
+Create a QR Code: https://api.qrserver.com/v1/create-qr-code/?size=<"length">x<"width">&data=<"URL"> 
   
 # Video Concatenator: Transloadit
 
@@ -18,7 +18,7 @@ We used transloadit to concatenate our videos and stored them in Google Cloud St
 
 # Google Cloud Storage
 
-Retrieve file from Google Storage Bucket: https://storage.cloud.google.com/<Google Bucket Name>/<File Path>
+Retrieve file from Google Storage Bucket: https://storage.cloud.google.com/<"Google Bucket Name">/<"File Path">
 
 # Firebase 
 
